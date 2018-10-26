@@ -1,27 +1,26 @@
 ﻿using ExpectedObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace ZipSample.test
 {
     [TestClass]
-    public class ConcatTests
+    public class OfTypeTests
     {
         [TestMethod]
-        public void concat_integers()
+        public void pick_integer_from_ArrayList()
         {
-            var first = new int[] {1, 3, 5};
-            var second = new int[] {2, 4, 6};
+            var arrayList = new ArrayList { 2, "4", 6 };
+            var actual = MyOfType(arrayList).ToList();
 
-            var actual = MyConcat(first, second).ToArray();
-
-            var expected = new int[] {1, 3, 5, 2, 4, 6};
+            var expected = new List<int> { 2, 6 };
             expected.ToExpectedObject().ShouldEqual(actual);
         }
 
-        private IEnumerable<int> MyConcat(IEnumerable<int> first, IEnumerable<int> second)
+        private IEnumerable<int> MyOfType(ArrayList source)
         {
             throw new NotImplementedException();
         }
