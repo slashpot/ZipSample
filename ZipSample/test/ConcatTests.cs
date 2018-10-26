@@ -21,7 +21,7 @@ namespace ZipSample.test
             expected.ToExpectedObject().ShouldEqual(actual);
         }
 
-        private IEnumerable<int> MyConcat(int[] first, int[] second)
+        private IEnumerable<int> MyConcat(IEnumerable<int> first, IEnumerable<int> second)
         {
             throw new NotImplementedException();
         }
