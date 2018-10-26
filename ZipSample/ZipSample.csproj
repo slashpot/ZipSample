@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\Entities.cs" />
+    <Compile Include="test\ConcatTests.cs" />
     <Compile Include="test\Repository.cs" />
     <Compile Include="test\ReverseTests.cs" />
     <Compile Include="test\UnitTest1.cs" />
