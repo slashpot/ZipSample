@@ -14,15 +14,10 @@ namespace ZipSample.test
         public void pick_integer_from_ArrayList()
         {
             var arrayList = new ArrayList { 2, "4", 6 };
-            var actual = MyOfType(arrayList).ToList();
+            var actual = arrayList.MyOfType().ToList();
 
             var expected = new List<int> { 2, 6 };
             expected.ToExpectedObject().ShouldEqual(actual);
-        }
-
-        private IEnumerable<int> MyOfType(ArrayList source)
-        {
-            throw new NotImplementedException();
         }
     }
 }
