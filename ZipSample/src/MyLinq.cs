@@ -54,7 +54,19 @@ namespace ZipSample
             }
         }
 
-        public static IEnumerable<Tuple<string, string>> MyZip(this IEnumerable<Girl> girls, IEnumerable<Key> keys)
+        public static IEnumerable<TResult> MyZip<TFirst,TSecond,TResult>(IEnumerable<TFirst> girls, IEnumerable<TSecond> keys, Func<TFirst, TSecond, TResult> selector)
+        {
+            var girlEnumerator = girls.GetEnumerator();
+            var keyEnumerator = keys.GetEnumerator();
+            while (girlEnumerator.MoveNext() && keyEnumerator.MoveNext())
+            {
+                var secondElement = keyEnumerator.Current;
+                var firstElement = girlEnumerator.Current;
+                yield return  selector(firstElement, secondElement);
+            }
+        }
+
+        public static IEnumerable<Tuple<string,string>> MyZip(IEnumerable<Key> keys, IEnumerable<Girl>girls)
         {
             var girlEnumerator = girls.GetEnumerator();
             var keyEnumerator = keys.GetEnumerator();
